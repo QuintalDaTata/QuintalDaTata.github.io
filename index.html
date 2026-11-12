@@ -3,23 +3,250 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Quintal da Tatá</title>
+<title>Quintal da Tatá — brincadeiras e desenhos para crianças</title>
+<meta name="description" content="App de brincadeiras para crianças de 1 a 5 anos e desenhos educativos no YouTube, com a Tatá, uma tatu-bolinha carinhosa. Sem internet, sem cadastro, feito para dedinhos pequenos.">
+<meta name="theme-color" content="#8fd3ff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quintal da Tatá">
+<meta property="og:description" content="Brincadeiras e desenhos para crianças de 1 a 5 anos, com a Tatá.">
+<meta property="og:image" content="https://quintaldatata.github.io/img/compartilhar.jpg">
+<meta property="og:url" content="https://quintaldatata.github.io/">
 <link rel="icon" href="icone.png">
+<link rel="preload" href="fontes/fredoka-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
+<!-- a Tatá do ícone do app, desenhada uma vez e reaproveitada -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+	<defs><clipPath id="casco"><path d="M18 92 A 54 54 0 0 1 126 92 Z"/></clipPath></defs>
+	<symbol id="tata" viewBox="0 0 160 112">
+		<path d="M24 84 L4 92 L24 94 Z" fill="#7d93c9" stroke="#2b2140" stroke-width="4" stroke-linejoin="round"/>
+		<g fill="#f2b48f" stroke="#2b2140" stroke-width="3.5">
+			<ellipse cx="42" cy="98" rx="9" ry="6"/><ellipse cx="62" cy="99" rx="9" ry="6"/>
+			<ellipse cx="86" cy="99" rx="9" ry="6"/><ellipse cx="104" cy="98" rx="9" ry="6"/>
+		</g>
+		<path d="M18 92 A 54 54 0 0 1 126 92 Z" fill="#7fa6e6"/>
+		<g clip-path="url(#casco)" fill="rgba(255,255,255,.35)">
+			<rect x="38" y="30" width="13" height="70" rx="6"/><rect x="66" y="30" width="13" height="70" rx="6"/>
+			<rect x="94" y="30" width="13" height="70" rx="6"/>
+		</g>
+		<path d="M18 92 A 54 54 0 0 1 126 92 Z" fill="none" stroke="#2b2140" stroke-width="4" stroke-linejoin="round"/>
+		<ellipse cx="44" cy="52" rx="10" ry="6" fill="rgba(255,255,255,.55)" transform="rotate(-30 44 52)"/>
+		<ellipse cx="112" cy="50" rx="7" ry="11" fill="#f6c7a5" stroke="#2b2140" stroke-width="3.5"/>
+		<ellipse cx="112" cy="51" rx="3" ry="6" fill="#ff9fb2"/>
+		<path d="M100 60 C 104 46, 132 46, 146 70 C 150 78, 140 86, 126 86 C 108 86, 96 74, 100 60 Z" fill="#f6c7a5" stroke="#2b2140" stroke-width="4" stroke-linejoin="round"/>
+		<circle cx="147" cy="72" r="4.5" fill="#2b2140"/>
+		<ellipse cx="122" cy="63" rx="5" ry="6.5" fill="#2b2140"/><circle cx="124" cy="60.5" r="2" fill="#fff"/>
+		<circle cx="114" cy="75" r="5" fill="#ff9fb2" opacity=".75"/>
+		<path d="M128 77 q 5 5 11 0" fill="none" stroke="#2b2140" stroke-width="3" stroke-linecap="round"/>
+	</symbol>
+	<symbol id="flor" viewBox="-24 -24 48 48">
+		<g fill="currentColor"><circle cx="0" cy="-13" r="10"/><circle cx="12.4" cy="-4" r="10"/><circle cx="7.6" cy="10.5" r="10"/><circle cx="-7.6" cy="10.5" r="10"/><circle cx="-12.4" cy="-4" r="10"/></g>
+		<circle r="7" fill="#ffd45c"/>
+	</symbol>
+	<symbol id="icone-play" viewBox="0 0 24 24"><path d="M4 2.5v19c0 .8.9 1.3 1.6.9l16-9.5c.7-.4.7-1.4 0-1.8l-16-9.5C4.9 1.2 4 1.7 4 2.5z" fill="#3fbf5a" stroke="#2b2140" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+	<symbol id="icone-yt" viewBox="0 0 24 24"><rect x="1.5" y="4.5" width="21" height="15" rx="5" fill="#fff"/><path d="M10 8.8v6.4l5.6-3.2z" fill="#ff4b4b"/></symbol>
+</svg>
+
+<a class="pular" href="#app">Pular para o conteúdo</a>
+
+<nav class="topo" aria-label="Principal">
+	<div class="largura">
+		<a class="marca" href="./"><img src="icone.png" alt="" width="36" height="36"><span>Quintal da Tatá</span></a>
+		<ul>
+			<li><a href="#app">O app</a></li>
+			<li><a href="#youtube">Desenhos</a></li>
+			<li><a href="#pais">Para os pais</a></li>
+			<li><a href="#ajuda">Ajuda</a></li>
+		</ul>
+	</div>
+</nav>
+
+<header class="heroi">
+	<svg class="cenario" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+		<circle cx="1230" cy="120" r="80" fill="var(--astro)"/>
+		<g fill="var(--nuvem)">
+			<g class="nuvem"><ellipse cx="190" cy="130" rx="80" ry="40"/><ellipse cx="130" cy="150" rx="55" ry="32"/><ellipse cx="250" cy="152" rx="58" ry="30"/><ellipse cx="200" cy="100" rx="50" ry="38"/></g>
+			<g class="nuvem n2"><ellipse cx="1150" cy="330" rx="62" ry="30"/><ellipse cx="1100" cy="346" rx="44" ry="25"/><ellipse cx="1200" cy="348" rx="46" ry="24"/></g>
+			<g class="nuvem n2"><ellipse cx="420" cy="300" rx="46" ry="22"/><ellipse cx="385" cy="312" rx="32" ry="18"/><ellipse cx="458" cy="313" rx="34" ry="17"/></g>
+		</g>
+		<path d="M0 500 C 300 440 560 460 760 480 S 1200 440 1440 470 V640 H0 Z" fill="var(--grama)" opacity=".7"/>
+		<path d="M0 540 C 360 490 1000 500 1440 530 V640 H0 Z" fill="var(--grama)"/>
+		<path d="M0 540 C 360 490 1000 500 1440 530" fill="none" stroke="var(--grama-escura)" stroke-width="10"/>
+		<g>
+			<use href="#flor" x="80" y="560" width="34" height="34" style="color:#ff6b8b"/>
+			<use href="#flor" x="230" y="590" width="28" height="28" style="color:#ffffff"/>
+			<use href="#flor" x="380" y="552" width="30" height="30" style="color:#b07cff"/>
+			<use href="#flor" x="520" y="600" width="26" height="26" style="color:#ff9f43"/>
+			<use href="#flor" x="900" y="596" width="28" height="28" style="color:#ff6b8b"/>
+			<use href="#flor" x="1040" y="556" width="32" height="32" style="color:#ffffff"/>
+			<use href="#flor" x="1180" y="598" width="26" height="26" style="color:#b07cff"/>
+			<use href="#flor" x="1330" y="560" width="34" height="34" style="color:#ff9f43"/>
+		</g>
+	</svg>
+	<div class="largura">
+		<h1>Quintal da <span class="tata">Tatá</span></h1>
+		<p class="lead">Brincadeiras e desenhos para crianças de 1 a 5 anos, com a Tatá, uma tatu-bolinha muito carinhosa.</p>
+		<div class="botoes">
+			<span class="botao em-breve" aria-label="Google Play: em breve">
+				<svg aria-hidden="true"><use href="#icone-play"/></svg>
+				<span class="duas-linhas"><small>Em breve no</small>Google Play</span>
+			</span>
+			<a class="botao youtube" href="https://www.youtube.com/@quintaldatata">
+				<svg aria-hidden="true"><use href="#icone-yt"/></svg>
+				Assistir no YouTube
+			</a>
+		</div>
+		<ul class="selos">
+			<li>Funciona sem internet</li>
+			<li>Sem conta e sem cadastro</li>
+			<li>Feito para dedinhos pequenos</li>
+		</ul>
+	</div>
+	<svg class="tata-heroi" viewBox="0 0 160 112" role="img" aria-label="A Tatá, uma tatu-bolinha azul"><use href="#tata"/></svg>
+</header>
+
 <main>
-<header><img src="icone.png" alt=""><div><h1>Quintal da Tatá</h1><p class="sub">Brincadeiras para crianças de 1 a 5 anos</p></div></header>
-<section>
-<p>Um quintal cheio de brincadeiras feitas para dedinhos pequenos: bichos e seus sons, cores, música, desenho e a família dentro do jogo. Funciona sem internet, sem conta e sem cadastro. Fotos, vozes e histórico ficam só no aparelho.</p>
-</section>
-<section>
-<h2>Suporte</h2>
-<p>Dúvidas, sugestões ou problemas com uma compra: <a href="mailto:appquintaldatata@gmail.com">appquintaldatata@gmail.com</a>.</p>
-<p>Comprou e a compra não apareceu? Abra a Área dos Pais → Loja → <b>Restaurar compras</b>, com a mesma conta Google usada na compra.</p>
-</section>
-<nav><a href="privacidade.html">Política de Privacidade</a></nav>
-<footer>Quintal da Tatá</footer>
+	<section class="bloco">
+		<div class="largura apresenta">
+			<svg viewBox="0 0 160 112" aria-hidden="true"><use href="#tata"/></svg>
+			<div>
+				<span class="etiqueta rosa">Muito prazer</span>
+				<h2>Esta é a Tatá</h2>
+				<p class="lead" style="margin:0">Uma tatu-bolinha de casco azul que adora brincar, cantar e descobrir o mundo. Ela fala com a criança em português, com voz fininha, e guia cada brincadeira: mostra onde tocar, comemora cada descoberta e, quando o tempo de brincar acaba, vai dormir.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="bloco creme" id="app">
+		<div class="largura">
+			<span class="etiqueta verde">O app</span>
+			<h2>Um quintal cheio de brincadeiras</h2>
+			<p class="lead">Mais de 80 brincadeiras em 15 cantinhos. Alvos grandes, nada para ler e tudo responde ao toque, do jeito que uma criança pequena brinca.</p>
+
+			<div class="galeria" tabindex="0" aria-label="Telas do app (role para o lado)">
+				<figure><img src="img/app-1-inicio.webp" width="960" height="540" loading="lazy" alt="Tela inicial do app com os cantinhos do quintal e a Tatá na grama"><figcaption>O quintal e seus cantinhos</figcaption></figure>
+				<figure><img src="img/app-2-fazenda.webp" width="960" height="540" loading="lazy" alt="Fazendinha com celeiro, vaca, porco, cavalo, ovelha e pato"><figcaption>Os sons de verdade dos bichos</figcaption></figure>
+				<figure><img src="img/app-3-circo.webp" width="960" height="540" loading="lazy" alt="Picadeiro do circo com um urso palhaço e a plateia de bichinhos"><figcaption>O circo da Tatá</figcaption></figure>
+				<figure><img src="img/app-4-carinho.webp" width="960" height="540" loading="lazy" alt="Cachorrinho para escovar, dar petisco e brincar"><figcaption>Carinho no bichinho</figcaption></figure>
+				<figure><img src="img/app-5-soneca.webp" width="960" height="540" loading="lazy" alt="Sala com o vovô e a criança no sofá, cachorro e gato no tapete"><figcaption>Soneca com o vovô</figcaption></figure>
+				<figure><img src="img/app-6-festa-junina.webp" width="960" height="540" loading="lazy" alt="Festa junina à noite com bandeirinhas, fogueira e bichinhos dançando quadrilha"><figcaption>Arraiá da Tatá</figcaption></figure>
+				<figure><img src="img/app-7-pintar.webp" width="960" height="540" loading="lazy" alt="Desenho de uma casinha para pintar com a paleta de cores ao lado"><figcaption>Pintar com os dedos</figcaption></figure>
+			</div>
+
+			<ul class="cantinhos" aria-label="Cantinhos do quintal">
+				<li>Fazendinha</li><li>Em Casa</li><li>Creche</li><li>Pracinha</li><li>Escolinha</li>
+				<li>Sala de Música</li><li>Ateliê</li><li>Jardim da Vovó</li><li>Quadra</li><li>Garagem</li>
+				<li>Quarto</li><li>Consultório</li><li>Natal</li><li class="premium">Cantinho Especial</li><li class="premium">Cantinho Mágico</li>
+			</ul>
+
+			<h3 class="subtitulo">O que tem de especial</h3>
+			<div class="grade" style="margin-top:16px">
+				<div class="cartao"><div class="icone rosa" aria-hidden="true">📸</div><h3>A família dentro do jogo</h3><p>Cadastre a foto da criança, da mamãe e do papai: eles aparecem nas brincadeiras, no esconde-esconde, no ABC pela inicial do nome e na hora de buscar na creche. Dá até para gravar a sua voz.</p></div>
+				<div class="cartao"><div class="icone amarela" aria-hidden="true">🎉</div><h3>O quintal muda com as festas</h3><p>No Carnaval, Páscoa, São João, Dia das Crianças, Halloween e Natal o quintal ganha cores e enfeites, e a Tatá se fantasia.</p></div>
+				<div class="cartao"><div class="icone azul" aria-hidden="true">🎵</div><h3>Música, cores, números e letras</h3><p>Bandinha dos bichos, dança da estátua, cores, formas, números até 10 e o ABC, sempre em forma de brincadeira, sem prova e sem erro que assuste.</p></div>
+				<div class="cartao"><div class="icone verde" aria-hidden="true">⏰</div><h3>Tempo de brincadeira</h3><p>Os pais escolhem quanto tempo por dia. Quando acaba, a Tatá vai dormir, e só um adulto libera mais.</p></div>
+				<div class="cartao"><div class="icone roxa" aria-hidden="true">🌙</div><h3>Modo calmo</h3><p>Sons mais suaves e ritmo mais lento, para brincar antes de dormir. E tem historinha narrada pela Tatá.</p></div>
+				<div class="cartao"><div class="icone laranja" aria-hidden="true">📊</div><h3>Relatório para os pais</h3><p>Quanto a criança brincou, do que mais gosta e o que cada brincadeira trabalha (no Premium).</p></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="bloco">
+		<div class="largura">
+			<span class="etiqueta amarela">Grátis para experimentar</span>
+			<h2>Grátis, e compras únicas, sem assinatura</h2>
+			<p class="lead">Baixe e brinque. Se a família gostar, uma compra única libera mais, para sempre.</p>
+			<div class="planos">
+				<div class="plano"><h3>Grátis</h3><ul><li>Mais de 60 brincadeiras</li><li>20 minutos de brincadeira por dia</li><li>Anúncios para crianças entre uma brincadeira e outra</li></ul></div>
+				<div class="plano"><h3>Quintal Completo</h3><ul><li>Sem nenhum anúncio</li><li>Vocês escolhem o tempo de brincadeira, ou sem limite</li></ul></div>
+				<div class="plano destaque"><h3>Quintal Premium</h3><ul><li>Tudo do Completo</li><li>20 brincadeiras de faz de conta: pizzaria, sorveteria, foguete, circo, praia, safári e mais</li><li>Tema do quintal à escolha o ano todo</li><li>Relatório da criança</li><li>Fotos de toda a família: avós, irmãos, professoras e os bichinhos</li></ul></div>
+			</div>
+			<p class="nota">Já tem o Completo? O Premium sai pela diferença, ninguém paga duas vezes. As compras ficam na Área dos Pais, atrás de um portão que só adulto abre.</p>
+		</div>
+	</section>
+
+	<section class="bloco creme" id="youtube">
+		<div class="largura">
+			<span class="etiqueta rosa">No YouTube</span>
+			<h2>Desenhos da Tatá e seus amigos</h2>
+			<p class="lead">A Tatá e a turma do quintal (o coelhinho Pipo, a sapinha Bolota, o cachorrinho Totó, a passarinha Lili e a Vovó Coruja) em desenhos animados e vídeos curtinhos para aprender cores, números, formas, letras e bichos. Todos marcados como conteúdo para crianças.</p>
+			<ul class="episodios">
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-01.webp" width="640" height="360" loading="lazy" alt=""><span>O Mapa do Tesouro <small>· ep. 1</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-02.webp" width="640" height="360" loading="lazy" alt=""><span>Sonho nas Nuvens <small>· ep. 2</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-03.webp" width="640" height="360" loading="lazy" alt=""><span>Aventura no Fundo do Mar <small>· ep. 3</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-04.webp" width="640" height="360" loading="lazy" alt=""><span>Viagem à Lua <small>· ep. 4</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-05.webp" width="640" height="360" loading="lazy" alt=""><span>Dia de Chuva <small>· ep. 5</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-06.webp" width="640" height="360" loading="lazy" alt=""><span>Esconde-Esconde na Floresta <small>· ep. 6</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-07.webp" width="640" height="360" loading="lazy" alt=""><span>Festa Surpresa da Vovó Coruja <small>· ep. 7</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-08.webp" width="640" height="360" loading="lazy" alt=""><span>Hora de Dormir <small>· ep. 8</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-09.webp" width="640" height="360" loading="lazy" alt=""><span>Um Dia na Fazendinha <small>· ep. 9</small></span></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/videos"><img src="img/ep-10.webp" width="640" height="360" loading="lazy" alt=""><span>Acampamento das Estrelas <small>· ep. 10</small></span></a></li>
+			</ul>
+
+			<h3 class="subtitulo">Vídeos curtinhos para aprender</h3>
+			<ul class="shorts" aria-label="Shorts do canal (role para o lado)">
+				<li><a href="https://www.youtube.com/@quintaldatata/shorts"><img src="img/short-01-cores.webp" width="360" height="640" loading="lazy" alt="Short: aprendendo as cores com a Tatá"></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/shorts"><img src="img/short-02-numeros.webp" width="360" height="640" loading="lazy" alt="Short: contando até 10 com a Tatá"></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/shorts"><img src="img/short-03-abc-a-i.webp" width="360" height="640" loading="lazy" alt="Short: ABC com a Tatá, de A até I"></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/shorts"><img src="img/short-07-fazendinha.webp" width="360" height="640" loading="lazy" alt="Short: os bichos da fazendinha"></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/shorts"><img src="img/short-10-arco-iris.webp" width="360" height="640" loading="lazy" alt="Short: as cores do arco-íris"></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/shorts"><img src="img/short-app-bandinha.webp" width="360" height="640" loading="lazy" alt="Short: brincando na Bandinha dos Bichos do app"></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/shorts"><img src="img/short-app-fazenda.webp" width="360" height="640" loading="lazy" alt="Short: brincando na Fazenda dos Sons do app"></a></li>
+				<li><a href="https://www.youtube.com/@quintaldatata/shorts"><img src="img/short-20-boa-noite.webp" width="360" height="640" loading="lazy" alt="Short: boa noite com a Tatá"></a></li>
+			</ul>
+			<div class="botoes" style="justify-content:flex-start;margin-top:12px">
+				<a class="botao youtube" href="https://www.youtube.com/@quintaldatata"><svg aria-hidden="true"><use href="#icone-yt"/></svg>Ver o canal</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="bloco" id="pais">
+		<div class="largura">
+			<span class="etiqueta azul">Para os pais</span>
+			<h2>Feito para vocês ficarem tranquilos</h2>
+			<p class="lead">O Quintal da Tatá foi pensado para crianças pequenas brincarem com um adulto por perto.</p>
+			<ul class="confianca">
+				<li><span><b>Sem conta, sem login, sem cadastro.</b> Abriu, brincou.</span></li>
+				<li><span><b>Fotos, vozes e histórico ficam só no aparelho.</b> Não temos servidor e nada disso é enviado.</span></li>
+				<li><span><b>Funciona sem internet</b>, no carro, na viagem, na sala de espera.</span></li>
+				<li><span><b>Portão para adultos</b> na Área dos Pais, nas compras e em qualquer link para fora do app.</span></li>
+				<li><span><b>Anúncios só na versão grátis</b>, classificados para crianças e sem personalização. Uma compra única tira todos.</span></li>
+				<li><span><b>Nada de prova, nota ou erro que assuste.</b> Cada toque vira descoberta.</span></li>
+			</ul>
+			<p class="nota">Detalhes em <a href="privacidade.html">Política de Privacidade</a>.</p>
+		</div>
+	</section>
+
+	<section class="bloco creme" id="ajuda">
+		<div class="largura">
+			<span class="etiqueta roxa">Ajuda</span>
+			<h2>Perguntas frequentes</h2>
+			<div class="perguntas">
+				<details><summary>Para qual idade é o app?</summary><p>Para crianças de 1 a 5 anos. As brincadeiras não pedem leitura: a Tatá fala, mostra onde tocar e comemora cada acerto.</p></details>
+				<details><summary>Precisa de internet?</summary><p>Não para brincar. Na versão grátis os anúncios só aparecem quando o aparelho está conectado.</p></details>
+				<details><summary>Tem para iPhone?</summary><p>Por enquanto, só para Android, pelo Google Play.</p></details>
+				<details><summary>Como entro na Área dos Pais?</summary><p>Na tela inicial, toque e segure a engrenagem no canto por dois segundos e responda a continha. É o portão que mantém compras e ajustes longe dos dedinhos.</p></details>
+				<details><summary>É assinatura?</summary><p>Não. O Quintal Completo e o Quintal Premium são compras únicas, para sempre. Quem já tem o Completo paga só a diferença para o Premium.</p></details>
+				<details><summary>Comprei e a compra não apareceu. E agora?</summary><p>Abra a Área dos Pais → Loja → <b>Restaurar compras</b>, com a mesma conta Google usada na compra. Se ainda assim não aparecer, escreva para nós.</p></details>
+				<details><summary>Como apago as fotos e as vozes da família?</summary><p>Na Área dos Pais você pode editar ou apagar tudo a qualquer momento. Ao desinstalar o app, esses dados são apagados junto, já que nunca saíram do aparelho.</p></details>
+				<details><summary>Tenho uma sugestão de brincadeira!</summary><p>Adoramos ouvir as famílias. Escreva para <a href="mailto:appquintaldatata@gmail.com">appquintaldatata@gmail.com</a>.</p></details>
+			</div>
+			<p class="nota">Dúvidas, sugestões ou problemas com uma compra: <a href="mailto:appquintaldatata@gmail.com">appquintaldatata@gmail.com</a>.</p>
+		</div>
+	</section>
 </main>
+
+<footer class="rodape">
+	<div class="largura">
+		<p class="titulo-fonte" style="font-size:1.3rem;font-weight:700">Quintal da Tatá</p>
+		<ul>
+			<li><a href="https://www.youtube.com/@quintaldatata">YouTube</a></li>
+			<li><a href="privacidade.html">Política de Privacidade</a></li>
+			<li><a href="mailto:appquintaldatata@gmail.com">Contato</a></li>
+		</ul>
+		<p class="pequeno">Feito com carinho no Brasil para os pequenos e suas famílias.</p>
+	</div>
+</footer>
 </body>
 </html>

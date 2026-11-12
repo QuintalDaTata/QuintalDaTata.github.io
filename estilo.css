@@ -1,14 +1,215 @@
-:root{--fundo:#fff8ef;--tinta:#2b2140;--suave:#6b6080;--cartao:#ffffff;--destaque:#e8590c;--borda:#f0e2cf}
-@media (prefers-color-scheme:dark){:root{--fundo:#1d1828;--tinta:#f1ecff;--suave:#b7add0;--cartao:#2a2338;--destaque:#ff9a52;--borda:#3a3150}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--fundo);color:var(--tinta);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-main{max-width:760px;margin:0 auto;padding:24px 16px 48px}
-header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
-header img{width:64px;height:64px;border-radius:16px}
-h1{font-size:1.7rem;line-height:1.2;margin:0}
-h2{font-size:1.2rem;margin:28px 0 6px}
-.sub{color:var(--suave);margin:0}
-section{background:var(--cartao);border:1px solid var(--borda);border-radius:16px;padding:4px 20px 12px;margin:16px 0}
-a{color:var(--destaque)}
-nav{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0}
-footer{color:var(--suave);font-size:.9rem;margin-top:32px}
+/* Quintal da Tatá — site (suporte, app, canal e privacidade). Sem nada de terceiros: fonte e imagens locais. */
+@font-face { font-family: Fredoka; font-weight: 500; font-display: swap; src: url(fontes/fredoka-latin-500-normal.woff2) format('woff2'); }
+@font-face { font-family: Fredoka; font-weight: 600; font-display: swap; src: url(fontes/fredoka-latin-600-normal.woff2) format('woff2'); }
+@font-face { font-family: Fredoka; font-weight: 700; font-display: swap; src: url(fontes/fredoka-latin-700-normal.woff2) format('woff2'); }
+
+:root {
+	--fundo: #fff8ef;
+	--cartao: #ffffff;
+	--tinta: #2b2140;
+	--suave: #5e5375;
+	--borda: #f0e2cf;
+	--link: #c2410c;
+	--ceu-1: #8fd3ff;
+	--ceu-2: #e6f6ff;
+	--astro: #ffd45c;
+	--grama: #5cc26b;
+	--grama-escura: #3f9e50;
+	--nuvem: #ffffff;
+	--rosa: #ff6b8b;
+	--roxo: #8e6cef;
+	--laranja: #ff9f43;
+	--azul: #3fb0e6;
+	--verde: #3fbf5a;
+	--sombra: 0 6px 0 rgba(43, 33, 64, 0.08);
+	color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--fundo: #1d1828;
+		--cartao: #2a2338;
+		--tinta: #f1ecff;
+		--suave: #c4bad9;
+		--borda: #3a3150;
+		--link: #ffb37a;
+		--ceu-1: #1b2350;
+		--ceu-2: #3a3270;
+		--astro: #fff3c4;
+		--grama: #3f8f4f;
+		--grama-escura: #2d6e3b;
+		--nuvem: #4b4580;
+		--sombra: 0 6px 0 rgba(0, 0, 0, 0.25);
+		color-scheme: dark;
+	}
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+	margin: 0;
+	background: var(--fundo);
+	color: var(--tinta);
+	font: 17px/1.6 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	overflow-x: hidden;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--link); }
+h1, h2, h3, .titulo-fonte, .botao, nav.topo a { font-family: Fredoka, system-ui, sans-serif; }
+h2 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); line-height: 1.15; margin: 0 0 8px; font-weight: 700; }
+h3 { font-size: 1.2rem; margin: 0 0 4px; font-weight: 600; }
+.largura { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+.lead { color: var(--suave); font-size: 1.1rem; margin: 0 0 24px; max-width: 720px; }
+.pular { position: absolute; left: -999px; }
+.pular:focus { left: 16px; top: 8px; z-index: 20; background: var(--cartao); padding: 8px 12px; border-radius: 10px; }
+
+/* ---------- barra do topo ---------- */
+nav.topo {
+	position: sticky; top: 0; z-index: 10;
+	background: color-mix(in srgb, var(--fundo) 88%, transparent);
+	backdrop-filter: blur(8px);
+	border-bottom: 1px solid var(--borda);
+}
+nav.topo .largura { display: flex; align-items: center; gap: 12px; height: 60px; }
+nav.topo .marca { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--tinta); font-weight: 700; font-size: 1.15rem; white-space: nowrap; }
+nav.topo .marca img { width: 36px; height: 36px; border-radius: 10px; }
+nav.topo ul { display: flex; gap: 4px; list-style: none; margin: 0 0 0 auto; padding: 0; overflow-x: auto; scrollbar-width: none; }
+nav.topo ul::-webkit-scrollbar { display: none; }
+nav.topo ul a { display: block; padding: 6px 10px; border-radius: 999px; text-decoration: none; color: var(--tinta); font-weight: 500; white-space: nowrap; }
+nav.topo ul a:hover, nav.topo ul a:focus-visible { background: var(--borda); }
+@media (max-width: 640px) { nav.topo .marca span { display: none; } nav.topo ul a { padding: 6px 8px; font-size: 0.95rem; } }
+
+/* ---------- herói: céu, sol, nuvens, morro e a Tatá ---------- */
+.heroi { position: relative; background: linear-gradient(var(--ceu-1), var(--ceu-2)); overflow: hidden; }
+.heroi .largura { position: relative; z-index: 2; padding-top: 56px; padding-bottom: 260px; text-align: center; }
+.heroi h1 {
+	font-size: clamp(2.6rem, 10vw, 5rem); line-height: 1; margin: 0 0 12px; font-weight: 700; letter-spacing: -1px;
+	color: #2b2140; text-shadow: 0 5px 0 rgba(43, 33, 64, 0.12);
+}
+.heroi h1 .tata { color: #3f9e50; }
+.heroi .lead { color: #3d3354; margin: 0 auto 24px; font-size: clamp(1.05rem, 2.6vw, 1.3rem); }
+@media (prefers-color-scheme: dark) {
+	.heroi h1 { color: #fff; text-shadow: 0 5px 0 rgba(0, 0, 0, 0.3); }
+	.heroi h1 .tata { color: #8fe39d; }
+	.heroi .lead { color: #e4ddff; }
+}
+.letras span:nth-child(5n + 1) { color: var(--rosa); }
+.letras span:nth-child(5n + 2) { color: var(--laranja); }
+.letras span:nth-child(5n + 3) { color: var(--verde); }
+.letras span:nth-child(5n + 4) { color: var(--azul); }
+.letras span:nth-child(5n + 5) { color: var(--roxo); }
+.heroi .cenario { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; }
+.heroi .tata-heroi { position: absolute; z-index: 3; left: 50%; bottom: 34px; width: min(300px, 62vw); transform: translateX(-50%); animation: rolar 6s ease-in-out infinite; }
+@keyframes rolar { 0%, 100% { transform: translateX(-50%) rotate(0); } 50% { transform: translateX(-46%) rotate(2deg); } }
+.nuvem { animation: flutuar 14s ease-in-out infinite alternate; }
+.nuvem.n2 { animation-duration: 18s; }
+@keyframes flutuar { to { transform: translateX(40px); } }
+@media (prefers-reduced-motion: reduce) { .heroi .tata-heroi, .nuvem { animation: none; } }
+
+.botoes { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+.botao {
+	display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px;
+	font-weight: 600; font-size: 1.1rem; text-decoration: none; border: 3px solid #2b2140; box-shadow: 0 5px 0 #2b2140;
+	transition: transform 0.12s, box-shadow 0.12s;
+}
+.botao:hover { transform: translateY(2px); box-shadow: 0 3px 0 #2b2140; }
+.botao:active { transform: translateY(5px); box-shadow: 0 0 0 #2b2140; }
+.botao svg { width: 24px; height: 24px; flex: none; }
+.botao.play { background: #ffffff; color: #2b2140; }
+.botao.youtube { background: #ff4b4b; color: #fff; }
+.botao.roxo { background: var(--roxo); color: #fff; }
+.botao.em-breve { background: #ffffff; color: #2b2140; cursor: default; opacity: 0.92; }
+.botao.em-breve:hover, .botao.em-breve:active { transform: none; box-shadow: 0 5px 0 #2b2140; }
+.botao small { display: block; font-size: 0.75rem; font-weight: 500; line-height: 1; opacity: 0.75; }
+.botao .duas-linhas { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+
+.selos { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 22px 0 0; padding: 0; list-style: none; }
+.selos li { background: rgba(255, 255, 255, 0.75); color: #2b2140; border-radius: 999px; padding: 4px 14px; font-size: 0.95rem; font-weight: 600; }
+
+/* ---------- seções ---------- */
+section.bloco { padding: 64px 0; }
+section.bloco.creme { background: var(--cartao); border-top: 1px solid var(--borda); border-bottom: 1px solid var(--borda); }
+.etiqueta { display: inline-block; font-family: Fredoka, sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.5px; text-transform: uppercase; padding: 2px 12px; border-radius: 999px; margin-bottom: 10px; color: #2b2140; }
+.etiqueta.rosa { background: #ffd1dc; }
+.etiqueta.verde { background: #c9f0cf; }
+.etiqueta.azul { background: #cdeeff; }
+.etiqueta.amarela { background: #ffe9a8; }
+.etiqueta.roxa { background: #e2d8ff; }
+
+/* quem é a Tatá */
+.apresenta { display: grid; grid-template-columns: 180px 1fr; gap: 28px; align-items: center; }
+.apresenta svg { width: 100%; height: auto; }
+@media (max-width: 640px) { .apresenta { grid-template-columns: 1fr; text-align: center; } .apresenta svg { width: 160px; margin: 0 auto; } }
+
+/* galeria de capturas (rola de lado) */
+.galeria { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 18px; margin: 0 -16px; scrollbar-width: thin; }
+.galeria figure { flex: 0 0 min(78vw, 520px); margin: 0; scroll-snap-align: center; }
+.galeria img { border-radius: 18px; border: 3px solid #2b2140; box-shadow: var(--sombra); aspect-ratio: 16 / 9; object-fit: cover; width: 100%; background: var(--borda); }
+.galeria figcaption { font-family: Fredoka, sans-serif; font-weight: 500; text-align: center; margin-top: 8px; color: var(--suave); }
+
+/* cantinhos */
+.cantinhos { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: 28px 0 0; }
+.cantinhos li { background: var(--cartao); border: 2px solid var(--borda); border-radius: 14px; padding: 6px 14px; font-weight: 600; font-family: Fredoka, sans-serif; }
+.cantinhos li.premium { border-color: var(--roxo); }
+.cantinhos li.premium::after { content: ' ★'; color: var(--roxo); }
+
+/* cartões */
+.grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+.cartao { background: var(--cartao); border: 1px solid var(--borda); border-radius: 20px; padding: 20px; box-shadow: var(--sombra); }
+section.creme .cartao { background: var(--fundo); }
+.cartao p { margin: 0; color: var(--suave); }
+.icone { width: 52px; height: 52px; border-radius: 16px; display: grid; place-items: center; font-size: 28px; margin-bottom: 12px; }
+.icone.rosa { background: #ffd1dc; } .icone.verde { background: #c9f0cf; } .icone.azul { background: #cdeeff; }
+.icone.amarela { background: #ffe9a8; } .icone.roxa { background: #e2d8ff; } .icone.laranja { background: #ffdcbc; }
+
+/* planos */
+.planos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.plano { background: var(--cartao); border: 3px solid var(--borda); border-radius: 22px; padding: 22px; }
+.plano.destaque { border-color: var(--roxo); }
+.plano h3 { font-size: 1.4rem; }
+.plano ul { margin: 10px 0 0; padding-left: 20px; color: var(--suave); }
+.plano li { margin: 4px 0; }
+.nota { color: var(--suave); font-size: 0.95rem; margin-top: 16px; }
+
+/* desenhos e Shorts */
+.episodios { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 16px;
+ list-style: none; padding: 0; margin: 0; }
+.episodios a { display: block; text-decoration: none; color: var(--tinta); }
+.episodios img { border-radius: 16px; aspect-ratio: 16 / 9; object-fit: cover; width: 100%; border: 3px solid #2b2140; transition: transform 0.15s; background: var(--borda); }
+.episodios a:hover img, .episodios a:focus-visible img { transform: translateY(-3px) rotate(-1deg); }
+.episodios span { display: block; font-family: Fredoka, sans-serif; font-weight: 600; margin-top: 6px; line-height: 1.3; }
+.episodios small { color: var(--suave); font-weight: 500; }
+@media (max-width: 520px) { .episodios { grid-template-columns: 1fr 1fr; gap: 12px; } .episodios span { font-size: 0.92rem; } }
+.shorts { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 16px 18px; margin: 28px -16px 0; list-style: none; }
+.shorts li { flex: 0 0 150px; scroll-snap-align: start; }
+.shorts img { border-radius: 16px; aspect-ratio: 9 / 16; object-fit: cover; width: 100%; border: 3px solid #2b2140; background: var(--borda); }
+.subtitulo { font-family: Fredoka, sans-serif; font-weight: 600; font-size: 1.3rem; margin: 40px 0 0; }
+
+/* lista de tranquilidade */
+.confianca { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 12px 24px; }
+.confianca li { display: flex; gap: 12px; align-items: flex-start; }
+.confianca li::before { content: '✓'; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--verde); color: #fff; font-weight: 700; display: grid; place-items: center; margin-top: 2px; }
+
+/* perguntas */
+.perguntas details { background: var(--cartao); border: 1px solid var(--borda); border-radius: 16px; padding: 0 20px; margin: 10px 0; }
+section.creme .perguntas details { background: var(--fundo); }
+.perguntas summary { cursor: pointer; font-family: Fredoka, sans-serif; font-weight: 600; font-size: 1.1rem; padding: 14px 0; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.perguntas summary::-webkit-details-marker { display: none; }
+.perguntas summary::after { content: '+'; font-size: 1.4rem; line-height: 1; color: var(--roxo); }
+.perguntas details[open] summary::after { content: '–'; }
+.perguntas details p { margin: 0 0 14px; color: var(--suave); }
+
+/* rodapé com grama */
+footer.rodape { background: var(--grama); color: #fff; margin-top: 0; padding: 36px 0 28px; border-top: 8px solid var(--grama-escura); }
+footer.rodape .largura { display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: center; justify-content: space-between; }
+footer.rodape a { color: #fff; font-weight: 600; }
+footer.rodape ul { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; padding: 0; margin: 0; }
+footer.rodape p { margin: 0; }
+footer.rodape .pequeno { font-size: 0.9rem; opacity: 0.9; width: 100%; }
+
+/* ---------- páginas de texto (privacidade) ---------- */
+.texto { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+.texto h1 { font-size: clamp(2rem, 6vw, 2.8rem); line-height: 1.1; margin: 0 0 6px; }
+.texto .data { color: var(--suave); margin: 0 0 24px; }
+.texto section { background: var(--cartao); border: 1px solid var(--borda); border-radius: 18px; padding: 6px 22px 14px; margin: 16px 0; }
+.texto h2 { font-size: 1.35rem; margin: 18px 0 6px; }
+.texto .resumo { border: 3px solid var(--verde); }
